@@ -46,8 +46,6 @@ export default class MonsterGenerator {
     return [key, candidate.get(key)];
   }
   public chooseMonster(mode: MODE = MODE.NORMAL): Monster | undefined {
-    // const evil = _.sample(TEMPLATES) || TEMPLATES[0];
-
     const [exp, num] = this.chooseExpNum(mode);
     const monster = _.sample(MONSTERS.filter((m: Monster) => m.exp === exp));
     if (monster !== undefined && num !== undefined) {
