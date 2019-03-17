@@ -1,4 +1,6 @@
 const AVATAR_DATA: string[] = [
+  'Ps_012.png',
+  'Ps_005.png',
   '001-centaur.png',
   '002-kraken.png',
   '003-dinosaur.png',

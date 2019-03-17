@@ -5254,7 +5254,7 @@ const MONSTER_DATA: Array<Partial<Monster>> = [
   },
 ];
 
-const MONSTERS: Monster[] = [];
+export const MONSTERS: Monster[] = [];
 for (let id = 0; id < MONSTER_DATA.length; id++) {
   MONSTERS.push(new Monster({
     id,
@@ -5262,4 +5262,12 @@ for (let id = 0; id < MONSTER_DATA.length; id++) {
   }));
 }
 
-export default MONSTERS;
+export function monsterKeys(fn: (m: Monster) => boolean): number[] {
+  const keys: number[] = [];
+  for (let [key, monster] of MONSTERS.entries()) {
+    if (fn(monster)) {
+      keys.push(key);
+    }
+  }
+  return keys;
+}

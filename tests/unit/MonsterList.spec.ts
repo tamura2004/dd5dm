@@ -3,7 +3,7 @@ import Vuetify from 'vuetify';
 import { mount } from '@vue/test-utils';
 import MonsterList from '@/components/MonsterList.vue';
 import { MODE } from '@/data/ENCOUNTER_DATA';
-import MONSTERS from '@/data/MONSTERS';
+import { MONSTERS } from '@/data/MONSTERS';
 
 describe('MonsterList', () => {
   let wrapper: any = null;

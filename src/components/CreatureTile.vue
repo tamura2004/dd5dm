@@ -44,7 +44,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import { mapGetters } from 'vuex';
 import Creature from '@/models/Creature';
 import Monster from '@/models/Monster';
-import MONSTERS from '@/data/MONSTERS';
+import { MONSTERS } from '@/data/MONSTERS';
 import TEMPLATES from '@/data/TEMPLATES';
 import Tenkey from '@/components/Tenkey.vue';
 

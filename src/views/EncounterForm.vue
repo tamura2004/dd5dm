@@ -21,7 +21,7 @@ import Encounter from '@/models/Encounter';
 import Creature from '@/models/Creature';
 import Player from '@/models/Player';
 import Monster from '@/models/Monster';
-import MONSTERS from '@/data/MONSTERS';
+import { MONSTERS } from '@/data/MONSTERS';
 import TEMPLATES from '@/data/TEMPLATES';
 
 @Component({

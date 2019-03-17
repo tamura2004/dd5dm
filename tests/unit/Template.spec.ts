@@ -1,4 +1,4 @@
-import MONSTERS from '@/data/MONSTERS';
+import { MONSTERS } from '@/data/MONSTERS';
 import TEMPLATES from '@/data/TEMPLATES';
 
 describe('Monster', () => {

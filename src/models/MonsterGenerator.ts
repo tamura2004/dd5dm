@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import Player from '@/models/Player';
-import MONSTERS from '@/data/MONSTERS';
+import { MONSTERS } from '@/data/MONSTERS';
 import Monster from '@/models/Monster';
 import { MODE, BASE_EXP, NUM_MODIFY, CR } from '@/data/ENCOUNTER_DATA';
 import TEMPLATES from '@/data/TEMPLATES';
