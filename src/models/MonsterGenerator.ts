@@ -1,9 +1,10 @@
 import _ from 'lodash';
 import Player from '@/models/Player';
-import { MONSTERS } from '@/data/MONSTERS';
+import { MONSTERS, monsterKeys } from '@/data/MONSTERS';
 import Monster from '@/models/Monster';
 import { MODE, BASE_EXP, NUM_MODIFY, CR } from '@/data/ENCOUNTER_DATA';
 import TEMPLATES from '@/data/TEMPLATES';
+import Encounter from '@/models/Encounter';
 
 export default class MonsterGenerator {
   public players: Map<number, number> = new Map();
@@ -56,5 +57,20 @@ export default class MonsterGenerator {
       monster.mode = mode;
       return monster;
     }
+  }
+  public chooseEncounter(mode: MODE = MODE.NORMAL): Encounter | undefined {
+    const [exp, monsterNum] = this.chooseExpNum(mode);
+    const monsterId = _.sample(monsterKeys((m) => m.exp === exp));
+    if (monsterNum === undefined || monsterId === undefined) {
+      return;
+    }
+    const monster = MONSTERS[monsterId];
+    const templateId = monster.alignment.includes('悪') ? null : _.random(0, TEMPLATES.length - 1);
+    return new Encounter({
+      monsterId,
+      templateId,
+      monsterNum,
+      mode,
+    });
   }
 }

@@ -41,7 +41,7 @@ export default class Monster {
     monster.type = template.type;
     monster.alignment = template.alignment;
     for (let i = 0; i < 6; i++) {
-      monster.ability[i] += template.abilityMod[i];
+      monster.ability[i] += Number(template.abilityMod[i]);
     }
     monster.ac += template.acMod;
     monster.maxHp = Math.floor(monster.maxHp * template.hpMod);

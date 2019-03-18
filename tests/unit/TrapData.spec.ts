@@ -9,7 +9,7 @@ import {
 describe('TRAP', () => {
   it('can choose mode', () => {
     const mode = chooseTrapMode();
-    expect(mode).toMatch(/妨害|危険|致命/);
+    expect(mode).toMatch(/妨害する|危険な|致命的な/);
   });
 
   it('can choose conditions', () => {

@@ -2,10 +2,10 @@
   .headline EncounterForm
     v-btn(block dark to="/encounter/1/battle") モンスター選択
     v-list(two-line)
-      template(v-for="monster in monsters")
-        MonsterList(:monster="monster")
+      template(v-for="encounter in encounters")
+        EncounterTile(:encounter="encounter")
           v-list-tile-action
-            v-btn(flat @click="select(monster)")
+            v-btn(flat @click="select(encounter)")
               v-icon done
         v-divider
 </template>
@@ -14,7 +14,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { MODE } from '@/data/ENCOUNTER_DATA';
 import { CREATE } from '@/types/ActionTypes';
-import MonsterList from '@/components/MonsterList.vue';
+import EncounterTile from '@/components/EncounterTile.vue';
 import MonsterGenerator from '@/models/MonsterGenerator';
 import Session from '@/models/Session';
 import Encounter from '@/models/Encounter';
@@ -26,7 +26,7 @@ import TEMPLATES from '@/data/TEMPLATES';
 
 @Component({
   components: {
-    MonsterList,
+    EncounterTile,
   },
 })
 export default class EncounterForm extends Vue {
@@ -35,16 +35,12 @@ export default class EncounterForm extends Vue {
   private get session(): Session {
     return this.$store.state.sessions.get(this.sessionId);
   }
-
   private get encounterNum() {
     return this.$store.getters.encounters(this.sessionId).size + 1;
   }
-
-
   private get players(): Map<string, Player> {
     return this.$store.state.players;
   }
-
   private get party(): Player[] {
     const ret = [];
     for (const id of this.session.playerIds) {
@@ -65,10 +61,11 @@ export default class EncounterForm extends Vue {
     MODE.HELL,
   ];
 
-  private get monsters(): Array<Monster | undefined> {
+  private get encounters(): Array<Encounter | undefined> {
     const generator = new MonsterGenerator();
     generator.loadPlayers(Array.from(this.players.values()));
-    return this.modes.map((mode: MODE) => generator.chooseMonster(mode));
+    // return this.modes.map((mode: MODE) => generator.chooseMonster(mode));
+    return this.modes.map((mode: MODE) => generator.chooseEncounter(mode));
   }
 
   private async select(monster: Monster) {

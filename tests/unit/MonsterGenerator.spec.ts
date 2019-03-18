@@ -57,4 +57,12 @@ describe('Encounter', () => {
     expect(received && received).toEqual(expect.any(Monster));
     expect(received && received.mode).toEqual(MODE.HELL);
   });
+
+  it('can choose random encounter', () => {
+    const encounter = generator.chooseEncounter(MODE.EASY);
+
+    expect(encounter && encounter.monsterId).toEqual(expect.any(Number));
+    expect(encounter && encounter.monsterNum).toEqual(expect.any(Number));
+    expect(encounter && encounter.mode).toEqual(expect.any(Number));
+  });
 });

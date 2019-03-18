@@ -5264,7 +5264,7 @@ for (let id = 0; id < MONSTER_DATA.length; id++) {
 
 export function monsterKeys(fn: (m: Monster) => boolean): number[] {
   const keys: number[] = [];
-  for (let [key, monster] of MONSTERS.entries()) {
+  for (const [key, monster] of MONSTERS.entries()) {
     if (fn(monster)) {
       keys.push(key);
     }
