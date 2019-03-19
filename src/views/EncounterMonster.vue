@@ -40,7 +40,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { mapGetters } from 'vuex';
 import CreatureTile from '@/components/CreatureTile.vue';
-import MONSTERS from '@/data/MONSTERS';
+import { MONSTERS } from '@/data/MONSTERS';
 import TEMPLATES from '@/data/TEMPLATES';
 
 @Component({

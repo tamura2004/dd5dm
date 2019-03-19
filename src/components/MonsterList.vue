@@ -20,7 +20,7 @@ v-list-tile(v-if="monster")
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import Monster from '@/models/Monster';
-import MONSTERS from '@/data/MONSTERS';
+import { MONSTERS } from '@/data/MONSTERS';
 import { MODE } from '@/data/ENCOUNTER_DATA';
 import Mode from '@/models/Mode';
 import TEMPLATES from '@/data/TEMPLATES';
