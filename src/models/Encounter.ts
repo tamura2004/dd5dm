@@ -23,6 +23,9 @@ export default class Encounter {
     this.room = _.sample(ROOMS.get('鉱山')) || null;
     this.trap = chooseTrap();
     Object.assign(this, init);
+    if (this.monster && !this.monster.alignment.includes('悪')) {
+      this.templateId = Math.floor(Math.random() * TEMPLATES.length);
+    }
   }
 
   public get monster(): Monster | undefined {

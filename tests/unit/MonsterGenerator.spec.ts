@@ -2,6 +2,7 @@ import MonsterGenerator from '@/models/MonsterGenerator';
 import Player from '@/models/Player';
 import { MODE, BASE_EXP, NUM_MODIFY, EXP, CR } from '@/data/ENCOUNTER_DATA';
 import Monster from '@/models/Monster';
+import Encounter from '@/models/Encounter';
 
 describe('Encounter', () => {
   const player = new Player({level: 3});
@@ -46,16 +47,6 @@ describe('Encounter', () => {
     const [exp, num] = generator.chooseExpNum(MODE.HELL);
     expect([25, 50, 100, 200, 450, 1100].includes(exp)).toBe(true);
     expect([15, 10, 6, 4, 2, 1].includes(num || 0)).toBe(true);
-  });
-
-  it('can choose random monster and num', () => {
-    let received = generator.chooseMonster(MODE.EASY);
-    expect(received && received).toEqual(expect.any(Monster));
-    expect(received && received.mode).toEqual(MODE.EASY);
-
-    received = generator.chooseMonster(MODE.HELL);
-    expect(received && received).toEqual(expect.any(Monster));
-    expect(received && received.mode).toEqual(MODE.HELL);
   });
 
   it('can choose random encounter', () => {
