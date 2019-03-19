@@ -1,9 +1,7 @@
 import _ from 'lodash';
 import Player from '@/models/Player';
-import { MONSTERS, monsterKeys } from '@/data/MONSTERS';
-import Monster from '@/models/Monster';
+import { monsterKeys } from '@/data/MONSTERS';
 import { MODE, BASE_EXP, NUM_MODIFY, CR } from '@/data/ENCOUNTER_DATA';
-import TEMPLATES from '@/data/TEMPLATES';
 import Encounter from '@/models/Encounter';
 
 export default class MonsterGenerator {

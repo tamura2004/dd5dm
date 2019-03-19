@@ -1,6 +1,5 @@
 <template lang="pug">
-  .headline EncounterForm
-    v-btn(block dark to="/encounter/1/battle") モンスター選択
+  .headline モンスター選択
     v-list(two-line)
       template(v-for="encounter in encounters")
         EncounterTile(:encounter="encounter")
@@ -64,7 +63,6 @@ export default class EncounterForm extends Vue {
   private get encounters(): Array<Encounter | undefined> {
     const generator = new MonsterGenerator();
     generator.loadPlayers(Array.from(this.players.values()));
-    // return this.modes.map((mode: MODE) => generator.chooseMonster(mode));
     return this.modes.map((mode: MODE) => generator.chooseEncounter(mode));
   }
 

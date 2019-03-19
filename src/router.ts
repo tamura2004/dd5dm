@@ -14,7 +14,6 @@ import EncounterBattle from '@/views/EncounterBattle.vue';
 import EncounterReward from '@/views/EncounterReward.vue';
 import EncounterRest from '@/views/EncounterRest.vue';
 
-
 Vue.use(Router);
 
 export default new Router({
@@ -23,7 +22,6 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
-      meta: { title: 'マスターツール' },
     },
     {
       path: '/sessions',
