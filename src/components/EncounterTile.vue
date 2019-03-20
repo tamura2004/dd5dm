@@ -19,11 +19,9 @@ v-list-tile(v-if="monster")
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import Monster from '@/models/Monster';
-import { MONSTERS } from '@/data/MONSTERS';
-import Encounter from '@/models/Encounter';
-import TEMPLATES from '@/data/TEMPLATES';
 import { MODE } from '@/data/ENCOUNTER_DATA';
+import Monster from '@/models/Monster';
+import Encounter from '@/models/Encounter';
 import Mode from '@/models/Mode';
 
 @Component
@@ -31,22 +29,10 @@ export default class EncounterTile extends Vue {
   @Prop() private encounter!: Encounter;
 
   private get monster(): Monster | undefined {
-    if (this.encounter === undefined) {
-      return;
-    }
-    const monsterId = this.encounter.monsterId;
-    if (monsterId === null) {
-      return;
-    }
-    let m: Monster = MONSTERS[monsterId];
-    const templateId = this.encounter.templateId;
-    if (templateId) {
-      m = m.add(TEMPLATES[templateId]);
-    }
-    return m;
+    return this.encounter.monster;
   }
   private get mode(): MODE {
-    return this.encounter.mode === null ? MODE.NORMAL : this.encounter.mode;
+    return this.encounter.mode;
   }
   private get color(): string {
     return Mode.color(this.mode);

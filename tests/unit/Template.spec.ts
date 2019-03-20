@@ -2,10 +2,15 @@ import { MONSTERS } from '@/data/MONSTERS';
 import TEMPLATES from '@/data/TEMPLATES';
 
 describe('Monster', () => {
-  const info = MONSTERS[1];
+  const info = MONSTERS.get(1);
 
   it('can initialize with template', () => {
-    const tree = MONSTERS[1];
+    const tree = MONSTERS.get(1);
+    expect(tree).toBeTruthy();
+    if (tree === undefined) {
+      return;
+    }
+
     expect(tree.name).toBe('アウェイクンド・ツリー');
     expect(tree.maxHp).toBe(59);
     expect(tree.ac).toBe(13);

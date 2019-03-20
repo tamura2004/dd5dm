@@ -5254,12 +5254,9 @@ const MONSTER_DATA: Array<Partial<Monster>> = [
   },
 ];
 
-export const MONSTERS: Monster[] = [];
+export const MONSTERS = new Map<number, Monster> ();
 for (let id = 0; id < MONSTER_DATA.length; id++) {
-  MONSTERS.push(new Monster({
-    id,
-    ...MONSTER_DATA[id],
-  }));
+  MONSTERS.set(id, new Monster(MONSTER_DATA[id]));
 }
 
 export function monsterKeys(fn: (m: Monster) => boolean): number[] {

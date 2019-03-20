@@ -18,13 +18,14 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import Player from '@/models/Player';
+import '@/plugins/map';
 
 @Component
 export default class PlayerTile extends Vue {
   @Prop() private id!: string;
 
-  private get player(): Player | undefined {
-    return this.$store.state.players.get(this.id);
+  private get player(): Player {
+    return this.$store.state.players.take(this.id);
   }
 }
 </script>

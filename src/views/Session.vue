@@ -1,5 +1,5 @@
 <template lang="pug">
-  .headline(v-if="available")
+  .headline(v-if="session")
     table
       tr
         th.label.body-2 セッション
@@ -28,6 +28,7 @@
 </template>
 
 <script lang="ts">
+import '@/plugins/map';
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { mapState, mapGetters } from 'vuex';
 import SessionModel from '@/models/Session';
@@ -40,15 +41,11 @@ import SessionModel from '@/models/Session';
 export default class Session extends Vue {
   @Prop() private sessionId!: string;
 
-  private get available(): boolean {
-    return this.session !== undefined && this.npc !== undefined;
-  }
-
   private get session(): SessionModel {
-    return this.$store.state.sessions.get(this.sessionId);
+    return this.$store.state.sessions.take(this.sessionId);
   }
   private get npc() {
-    return this.$store.state.npcs.get(this.session.npcId);
+    return this.$store.state.npcs.take(this.session.npcId);
   }
 }
 </script>

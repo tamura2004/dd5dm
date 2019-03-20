@@ -60,7 +60,7 @@ export default class SessionForm extends Vue {
   private required: Validator[] = [
     (v: string) => !!v || '必須項目です',
   ];
-  private form = new Session({});
+  private form = Session.form();
 
   private get dungeons() {
     return Item.from(this.$store.state.dungeons);
@@ -71,7 +71,7 @@ export default class SessionForm extends Vue {
 
   private async submit() {
     const sessionId: string = await this.$store.dispatch(CREATE,
-      new Session({...this.form}),
+      new Session(this.form),
     );
     this.$router.push({
       name: 'session/players',

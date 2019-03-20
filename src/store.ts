@@ -20,7 +20,7 @@ export default new Vuex.Store({
       return (sessionId: string) => new Map<string, Encounter>(
         [...state.encounters]
         .filter(([_, e]) => e.sessionId === sessionId)
-        .sort(([_, a], [__, b]) => a.level - b.level),
+        .sort(([_, a], [__, b]) => (a.level || 0) - (b.level || 0)),
       );
     },
     encounter(state) {

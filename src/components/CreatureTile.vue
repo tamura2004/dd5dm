@@ -34,25 +34,15 @@ v-list-tile
           field="hp"
           title="hpを修正して=を押して下さい"
         )
-        //- .display-1 {{ creature.hp }}
-        //- LifeCounter(v-model="hp")
-
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { mapGetters } from 'vuex';
 import Creature from '@/models/Creature';
 import Monster from '@/models/Monster';
-import { MONSTERS } from '@/data/MONSTERS';
-import TEMPLATES from '@/data/TEMPLATES';
 import Tenkey from '@/components/Tenkey.vue';
 
-
 @Component({
-  computed: {
-    ...mapGetters(['creature']),
-  },
   components: {
     Tenkey,
   },
@@ -65,13 +55,8 @@ export default class CreatureTile extends Vue {
   }
 
   private get monster(): Monster {
-    let info = MONSTERS[this.creature.monsterId || 0];
-    if (this.creature.templateId !== null) {
-      info = info.add(TEMPLATES[this.creature.templateId]);
-    }
-    return info;
+    return this.$store.getters.encounter(this.creature.encounterId).monster;
   }
-
 }
 
 </script>

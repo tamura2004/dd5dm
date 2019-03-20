@@ -57,6 +57,8 @@ export default class MonsterGenerator {
         mode,
         monsterId,
         monsterNum,
+        level: 0,
+        sessionId: '',
       });
     }
   }

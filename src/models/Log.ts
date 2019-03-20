@@ -5,7 +5,7 @@ export default class Log {
   public encounterId: string | null = null;
   public message: string | null = null;
 
-  constructor(init: Partial<Log>) {
+  constructor(init: Form<Log>) {
     Object.assign(this, init);
   }
 }

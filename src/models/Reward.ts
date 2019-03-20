@@ -6,7 +6,7 @@ export default class Reward {
   public gold: number = 0;
   public items: string[] = [];
 
-  constructor(init: Partial<Reward>) {
+  constructor(init: Form<Reward>) {
     Object.assign(this, init);
   }
 }

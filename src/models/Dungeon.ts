@@ -4,7 +4,7 @@ export default class Dungeon {
   public name!: string;
   public description?: string;
 
-  constructor(init: Partial<Dungeon>) {
+  constructor(init: Form<Dungeon>) {
     Object.assign(this, init);
   }
 }

@@ -29,7 +29,7 @@ export default class Player {
   public memo: string | null = null;
   public avatar: string | null = null;
 
-  constructor(init: Partial<Player>) {
+  constructor(init: Form<Player>) {
     Object.assign(this, init);
   }
 
