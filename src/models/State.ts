@@ -12,4 +12,13 @@ export default class State {
   public players: Map<string, Player> = new Map<string, Player>();
   public dungeons: Map<string, Dungeon> = new Map<string, Dungeon>();
   public npcs: Map<string, Npc> = new Map<string, Npc>();
+
+  public get ready(): boolean {
+    return this.sessions.size > 0 &&
+      this.encounters.size > 0 &&
+      this.creatures.size > 0 &&
+      this.players.size > 0 &&
+      this.dungeons.size > 0 &&
+      this.npcs.size > 0;
+  }
 }

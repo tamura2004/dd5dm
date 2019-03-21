@@ -1,5 +1,5 @@
 <template lang="pug">
-v-app
+v-app(v-if="$store.state.ready")
   v-navigation-drawer(app fixed v-model="drawer")
     v-toolbar(flat dark dense)
       v-toolbar-title メニュー

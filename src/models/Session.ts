@@ -18,7 +18,7 @@ export default class Session {
       typeof init.dungeonId === 'string' &&
       typeof init.npcId === 'string' &&
       typeof init.purpose === 'string' &&
-      typeof init.reward === 'number' &&
+      typeof init.reward === 'string' &&
       typeof init.limit === 'string';
   }
 
