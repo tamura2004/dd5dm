@@ -1,5 +1,5 @@
 <template lang="pug">
-v-app(v-if="$store.state.ready")
+v-app(v-if="ready")
   v-navigation-drawer(app fixed v-model="drawer")
     v-toolbar(flat dark dense)
       v-toolbar-title メニュー
@@ -19,6 +19,7 @@ v-app(v-if="$store.state.ready")
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { TITLES } from '@/data/TITLES';
+import { mapGetters } from 'vuex';
 
 interface Menu {
   path: string;
@@ -26,7 +27,11 @@ interface Menu {
   label: string;
 }
 
-@Component
+@Component({
+  computed: {
+    ...mapGetters(['ready']),
+  },
+})
 export default class App extends Vue {
   private drawer: boolean = false;
   private menues: Menu[] = [

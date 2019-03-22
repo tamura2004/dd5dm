@@ -2,36 +2,50 @@ import _ from 'lodash';
 import '@/plugins/map';
 import { ROOMS } from '@/data/ROOMS';
 import { chooseTrap } from '@/data/TRAP';
-import Monster from '@/models/Monster';
 import { MONSTERS } from '@/data/MONSTERS';
-import TEMPLATES from '@/data/TEMPLATES';
 import { MODE } from '@/data/ENCOUNTER_DATA';
+import Monster from '@/models/Monster';
+import TEMPLATES from '@/data/TEMPLATES';
 
-const isEncounter = (init: any): init is Monster =>
-  typeof init.monsterId === 'number' &&
-  typeof init.monsterNum === 'number' &&
-  typeof init.mode === 'number';
+interface IEncounter {
+  sessionId: string;
+  monsterId: number;
+  monsterNum: number;
+  mode: MODE;
+  level: number;
+  templateId?: number;
+  room?: string;
+  trap?: string;
+}
+
+const isIEncounter = (init: any): init is Monster =>
+typeof init.sessionId === 'number' &&
+typeof init.monsterId === 'number' &&
+typeof init.monsterNum === 'number' &&
+typeof init.mode === 'number';
 
 const errorMsg = (init: any): string => [
-  init.monsterId === undefined ? 'bad monster id' : '',
-  init.monsterNum === undefined ? 'bad monster num' : '',
-  init.mode === undefined ? 'bad mode' : '',
+  'bad IEncounter',
+  init.sessionId === undefined ? 'sessionId required' : '',
+  init.monsterId === undefined ? 'monsterId required' : '',
+  init.monsterNum === undefined ? 'monsterNum required' : '',
+  init.mode === undefined ? 'mode required' : '',
 ].join();
 
-export default class Encounter {
+export default class Encounter implements IEncounter {
   public static collectionName: string = 'encounters';
 
+  public sessionId!: string;
   public monsterId!: number;
   public monsterNum!: number;
   public mode!: MODE;
-  public sessionId: string | null = null;
-  public level: number | null = null;
-  public templateId: number | null = null;
-  public room: string | null = null;
-  public trap: string | null = null;
+  public level!: number;
+  public templateId?: number;
+  public room?: string;
+  public trap?: string;
 
-  constructor(init: Form<Encounter>) {
-    if (!isEncounter(init)) {
+  constructor(init: IEncounter) {
+    if (!isIEncounter(init)) {
       throw new Error(`${errorMsg(init)}: ${JSON.stringify(init)}`);
     }
     this.room = _.sample(ROOMS.get('鉱山')) || '';
@@ -44,7 +58,7 @@ export default class Encounter {
 
   public get monster(): Monster {
     const base = MONSTERS.take(this.monsterId);
-    if (this.templateId === null) {
+    if (this.templateId === undefined) {
       return base;
     } else {
       const template = TEMPLATES[this.templateId];

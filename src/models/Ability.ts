@@ -6,7 +6,7 @@ export default class Ability {
 
   public static modifyString(ability: number): string {
     const modify = this.modify(ability);
-    if (modify >= 12) {
+    if (modify > 0) {
       return `+${modify}`;
     } else {
       return `${modify}`;

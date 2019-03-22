@@ -13,6 +13,14 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: new State(),
   getters: {
+    ready(state) {
+      return state.sessions.size > 0 &&
+        state.encounters.size > 0 &&
+        state.creatures.size > 0 &&
+        state.players.size > 0 &&
+        state.dungeons.size > 0 &&
+        state.npcs.size > 0;
+    },
     session(state) {
       return (sessionId: string) => state.sessions.get(sessionId);
     },
@@ -52,6 +60,7 @@ export default new Vuex.Store({
   },
   actions: {
     async [CREATE]({}, payload) {
+      console.log(payload);
       const conn = db.collection(payload.constructor.collectionName);
       const ref: any = await conn.add({...payload});
       return ref.id;
