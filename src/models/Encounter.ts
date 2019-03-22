@@ -19,7 +19,7 @@ interface IEncounter {
 }
 
 const isIEncounter = (init: any): init is Monster =>
-typeof init.sessionId === 'number' &&
+typeof init.sessionId === 'string' &&
 typeof init.monsterId === 'number' &&
 typeof init.monsterNum === 'number' &&
 typeof init.mode === 'number';

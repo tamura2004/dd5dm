@@ -11,10 +11,12 @@ describe('EncounterTile', () => {
   beforeEach(() => {
     Vue.use(Vuetify);
     const encounter = new Encounter({
+      sessionId: 'abc',
       monsterId: 1,
       templateId: 1,
       monsterNum: 3,
       mode: MODE.EASY,
+      level: 0,
     });
     wrapper = mount(EncounterTile, { propsData: { encounter }});
   });
