@@ -18,7 +18,7 @@ export const TRAP_MODE = new Map<number, string>([
 ]);
 
 export const chooseTrapMode = () => {
-  for (let dice =  1; dice <= 6; dice++) {
+  for (let dice = 1; dice <= 6; dice++) {
     return [...TRAP_MODE].reduce((a, [num, msg]) => a = dice >= num ? msg : a, '');
   }
 };

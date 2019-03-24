@@ -21,7 +21,7 @@ import Player from '@/models/Player';
 import '@/plugins/map';
 
 @Component
-export default class PlayerTile extends Vue {
+export default class PlayerTileContent extends Vue {
   @Prop() private id!: string;
 
   private get player(): Player {
