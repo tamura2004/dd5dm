@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for data/TRAP.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\prettify.css" />
+    <link rel="stylesheet" href="..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\index.html">All files</a> / <a href="index.html">data</a> TRAP.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>23/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/19</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import _ from 'lodash';
+&nbsp;
+export const TRAP_CONDITIONS = [
+  '踏む',
+  '通る',
+  '触る',
+  '開ける',
+  '見つめる',
+  '動かす',
+];
+&nbsp;
+export const chooseTrapCondition = () =&gt; _.sample(TRAP_CONDITIONS);
+&nbsp;
+export const TRAP_MODE = new Map&lt;number, string&gt;([
+  [1, '妨害する'],
+  [3, '危険な'],
+  [6, '致命的な'],
+]);
+&nbsp;
+export const chooseTrapMode = () =&gt; {
+  const dice = Math.floor(Math.random() * 6 + 1);
+  return [...TRAP_MODE].reduce((a, [num, msg]) =&gt; a = dice &gt; num ? msg : a, '');
+};
+&nbsp;
+export const TRAP_EFFECTS = [
+  '像または物体からマジック·ミサイル呪文が飛んでくる',
+  '階段が突然すべり台に変化し、キャラクターたちはすべり台の下に開いた穴にすべり落ちる',
+  '天井の一部または全体が崩落する',
+  '部屋に閉じこめられ、天井がゆっくりと下りてくる',
+  '床に滑り台つき落とし穴が開く',
+  'うるさい音がして近くのモンスターを呼び寄せてしまう',
+  '物体に触るとディスインテグレート呪文が作動する',
+  '扉などの物体に接触毒が塗られている',
+  '壁、床、または物体から炎が噴き出す',
+  '物体に触るとフレッシュ·トゥ·ストーン呪文が作動する',
+  '床が崩れる/床は幻だった',
+  '壁の穴からガスが噴き出す;目つぶし、酸、視界阻害、麻痺、毒、または睡眠',
+  '床のタイルが電気を帯びる',
+  'グリフ·オヴ·ウォーディング呪文',
+  '大きな車輪のついた像が階段を下りてくる',
+  '壁または物体からライトニング·ボルト呪文が飛んでくる',
+  '部屋に閉じこめられ、水または酸が流れこむ',
+  '開けた宝箱からダーツが飛んでくる',
+  '武器、鎧、またはじゅうたんに触れると、自律行動を始めて襲いかかってくる(『モンスター·マニュアル』のアニメイテッド·オブジェクト参照)',
+  '振り子(刃がついているか、鉄鎚のように重い)が部屋や廊下を横切って往復運動する',
+  'キャラクターの足元に落とし穴が開く(25%の確率で、穴の底に1体のブラック·プディングかゼラチナス·キュブがいる)',
+  '酸または炎で満たされた落とし穴',
+  '水で満たされた落とし穴;自動的にふたが閉まり施錠される',
+  '壁または物体から大鎌の刃が現れる',
+  '槍(毒が塗ってあるかもしれない)が突き出す',
+  'もろくなっていた階段が崩れ、下にはスパイクが植わっている',
+  'サンダーウェイヴ呪文がキャラクターたちを穴やスパイクの方へ押しやる',
+  '鋼鉄製または石製のトラバサミがキャラクターを拘束する',
+  '廊下の端から端まで、石のブロックが次々と落下する',
+  'シンボル呪文',
+  '両側の壁が同時にスライドする',
+];
+&nbsp;
+export const chooseTrapEffect = () =&gt; _.sample(TRAP_EFFECTS);
+&nbsp;
+export const TRAP_ITEMS = [
+'ひじ掛け椅子',
+'移動式食器棚',
+'たれ幕',
+'カーテン',
+'カバン',
+'ビール樽',
+'クッションつきの足台',
+'大型の樽',
+'大型の偶像',
+'小型の樽',
+'織機',
+'マット',
+'マットレス',
+'手桶',
+'絵画',
+'ベンチ',
+'大きな箱',
+'わら布団',
+'台座',
+'釘',
+'枕',
+'掛け布団',
+'火鉢と石炭',
+'バケツ',
+'立食台',
+'二段ベッド',
+'超大型な樽',
+'枝付き燭台',
+'カーペット(大型)',
+'ワイン樽',
+'シャンデリア',
+'じゅうたん',
+'燈心草',
+'ずだ袋',
+'壁の燭台',
+'灰',
+'簡素な椅子',
+'クッションつきの椅子',
+'長椅子',
+'大型の櫃',
+'中型の櫃',
+'引き出しの並ぶ整理棚',
+'衣装だんす',
+'ついたて',
+'シーツ',
+'棚',
+'社',
+'サイドボード',
+'ソファ',
+'普通の杖',
+'演台',
+'像',
+'高いスツール',
+'普通のスツール',
+'大型のテーブル',
+'長いテーブル',
+'低いテーブル',
+'丸テーブル',
+'小型のテーブル',
+'組み立て式テーブル',
+'タペストリー',
+'玉座',
+'トランク',
+'バスタブ',
+'超大型の樽',
+'骨壺',
+'寝椅子',
+'油皿(灯火用)',
+'食器棚',
+'クッション',
+'教壇',
+'机',
+'暖炉と薪',
+'マントルピースつきの暖炉',
+'小型の樽',
+'噴水',
+'フレスコ画',
+'壁の水盤と泉',
+'棒きれ',
+'作業台',
+'石臼',
+];
+&nbsp;
+export const chooseTrapItem = () =&gt; _.sample(TRAP_ITEMS);
+&nbsp;
+export const chooseTrap = () =&gt; {
+  const mode = chooseTrapMode();
+  const condition = chooseTrapCondition();
+  const effect = chooseTrapEffect();
+  const item = chooseTrapItem();
+  const find = _.random(8, 16);
+  const disable = _.random(10, 18);
+  return `${item}を${condition}と発動する${mode}罠。発見難易度${find}、無効化難易度${disable}。効果：${effect}`;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Mar 24 2019 18:58:44 GMT+0900 (GMT+09:00)
+</div>
+</div>
+<script src="..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\sorter.js"></script>
+</body>
+</html>

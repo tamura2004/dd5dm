@@ -20,7 +20,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import Player from '@/models/Player';
 
 @Component
-export default class PlayerTile extends Vue {
+export default class PlayerTileContent extends Vue {
   @Prop() private id!: string;
 
   private get player(): Player | undefined {
