@@ -51,10 +51,6 @@ requireComponent.keys().forEach((fileName: any) => {
 });
 
 new Vue({
-  data: {
-    drawer: false,
-    processing: false,
-  },
   router,
   store,
   render: (h) => h(App),

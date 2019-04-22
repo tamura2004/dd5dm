@@ -85,6 +85,11 @@ export default new Vuex.Store({
     async [ACTION.DELETE]({}, { collectionName, id }) {
       await db.collection(collectionName).doc(id).delete();
     },
+    async [ACTION.UPLOAD_IMAGE]({ dispatch }, { payload, canvas }) {
+      const id = await dispatch(ACTION.CREATE, payload);
+      const blob = await dispatch(ACTION.TO_BLOB, { canvas });
+      await dispatch(ACTION.PUT_IMAGE, { id, blob });
+    },
     async [ACTION.DELETE_IMAGE]({}, { id }) {
       const storageRef = firebase.storage().ref();
       const imageRef = storageRef.child(`images/${id}.png`);
