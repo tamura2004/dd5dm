@@ -1,12 +1,9 @@
 <template lang="pug">
 v-form(v-model="valid" v-if="form")
   v-card(width="320px")
-    v-canvas(
-      :id="id"
-      width="320"
-      height="180"
-      @fileChange="fileChangeHandler"
-    )
+    v-card-actions
+      base-upload-button(width="320" height="180" :id="id")
+    base-canvas(width="320" height="180" :id="id")
     v-text-field.pa-2(
       label="名前"
       v-model="form.name"
@@ -22,11 +19,9 @@ v-form(v-model="valid" v-if="form")
       v-btn(
         v-if="deletable"
         color="error"
-        @click="deleteHandler"
       ) 削除
       v-btn(
         color="primary"
-        @click="uploadHandler"
       ) 保存
 </template>
 
@@ -53,7 +48,6 @@ export default class NpcForm extends Vue {
   private form: Form<Npc> = Npc.form();
   private valid: boolean = false;
   private required: Validation[] = [(v) => !!v || '必須項目です'];
-  private canvas: HTMLCanvasElement | null = null;
 
   private created() {
     if (this.init === undefined) {
@@ -61,29 +55,6 @@ export default class NpcForm extends Vue {
     } else {
       Object.assign(this.form, this.init);
     }
-  }
-
-  private fileChangeHandler(canvas: HTMLCanvasElement) {
-    this.canvas = canvas;
-  }
-
-  private uploadHandler() {
-    if (!Npc.valid(this.form)) {
-      alert('不正な入力です');
-      return;
-    }
-    this.$emit('upload', {
-      canvas: this.canvas,
-      form: this.form,
-    });
-  }
-
-  private deleteHandler() {
-    const ok = confirm(`${this.form && this.form.name}を削除してよろしいですか`);
-    if (!ok) {
-      return;
-    }
-    this.$emit('delete');
   }
 }
 </script>

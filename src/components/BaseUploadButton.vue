@@ -23,9 +23,9 @@ export default class BaseUploadButton extends Vue {
   @Prop() private width!: number;
   @Prop() private height!: number;
 
-  @Inject() readonly canvas!: HTMLCanvasElement;
+  @Inject() private canvas!: HTMLCanvasElement;
 
-  @Provide() input: HTMLInputElement = this.$refs.input;
+  @Provide() private input: HTMLInputElement = this.$refs.input;
 
   private get ratio() {
     return this.width / this.height;

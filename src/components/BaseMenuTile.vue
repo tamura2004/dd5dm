@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-list-tile(@click="click" :to="menu.path")
+  v-list-tile(:to="menu.path")
     v-list-tile-action
       v-icon {{ menu.icon }}
     v-list-tile-title {{ menu.label }}

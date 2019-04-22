@@ -8,6 +8,8 @@
 
 <script lang="ts">
 import { Component, Vue, Prop, Provide } from 'vue-property-decorator';
+import firebase from 'firebase/app';
+import 'firebase/storage';
 
 @Component
 export default class BaseCanvas extends Vue {
@@ -17,12 +19,12 @@ export default class BaseCanvas extends Vue {
 
   @Prop() private width!: number;
   @Prop() private height!: number;
-  @Prop() private url!: string;
+  @Prop() private id!: string;
 
-  @Provide() canvas: HTMLCanvasElement = this.$refs.canvas;
+  @Provide() private canvas: HTMLCanvasElement = this.$refs.canvas;
 
-  private created() {
-    if (!this.url) {
+  private async created() {
+    if (!this.id) {
       return;
     }
     const image = new Image();
@@ -35,7 +37,10 @@ export default class BaseCanvas extends Vue {
       ctx.clearRect(0, 0, this.width, this.height);
       ctx.drawImage(image, 0, 0);
     };
-    image.src = this.url;
+    const storage = firebase.storage();
+    const ref = storage.ref(`images/${this.id}.png`);
+    const url = await ref.getDownloadURL();
+    image.src = url;
   }
 }
 </script>
