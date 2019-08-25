@@ -4,18 +4,14 @@
     .display-3.mb-4 D&D5版
     .display-3.mb-4 キャンペーン
     .display-1.mb-4 あなたは・・・
-    base-menu-button(color="primary" to="/menu/guild") 冒険者
-    base-menu-button(color="grey darken-4" to="/menu/master") マスター
+    app-menu-button(color="primary" to="/menu/guild") 冒険者
+    app-menu-button(color="grey darken-4" to="/menu/master") マスター
 </template>
 
 <script>
 export default {
-  layout: "menu",
+  created() {
+    this.$title("DD5TOOLS")
+  }
 };
 </script>
-
-<style lang="stylus" scoped>
-#btn
-  height 60px
-  font-size 32px
-</style>

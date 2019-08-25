@@ -9,11 +9,11 @@
           v-flex(xs4) PL:{{ player.name }}
       v-list-item-subtitle
         v-layout
-          v-flex(xs6) {{ player.klass }}/{{ guild(player.guildId) && guild(player.guildId).exp }}exp
-          v-flex(xs6) {{ player.race }}/{{ player.background}}
+          v-flex(xs8) {{ player.klass }} {{ player | guild | level }}レベル
+          v-flex(xs4) AC:{{ player.ac }}
       v-list-item-subtitle
         v-layout
-          v-flex(xs4) AC:{{ player.ac }}
+          v-flex(xs8) {{ player.race }}/{{ player.background}}
           v-flex(xs4) hp:{{ player.hp }}
 </template>
 

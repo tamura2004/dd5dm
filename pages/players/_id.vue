@@ -1,29 +1,22 @@
 <template lang="pug">
-  app-bar(title="キャラクターシート")
-    v-card
-      player-list(:player="pl || $router.push('/players')")
-      nuxt-child
+  v-card
+    app-list(:player="id | player")
+    nuxt-child
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import appBar from "~/components/layouts/app-bar";
-import playerList from "~/components/pages/player-list";
+import appList from "~/components/pages/player/app-list";
 
 export default {
   components: {
-    appBar,
-    playerList,
+    appList,
   },
   asyncData({ params }) {
     const id = params.id;
     return { id };
   },
-  computed: {
-    ...mapGetters("players", ["player"]),
-    pl() {
-      return this.player(this.id);
-    }
-  },
+  created() {
+    this.$title("キャラクターシート")
+  }
 };
 </script>

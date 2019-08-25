@@ -1,21 +1,20 @@
 <template lang="pug">
-  app-bar(title="冒険者名簿")
-    v-card
-      v-list
-        template(v-for="player in players")
-          player-list(:player="player")
-          v-divider(:key="'div' + player.id")
+  v-card
+    v-list
+      template(v-for="player in players")
+        app-list(:player="player")
+        v-divider(:key="'div' + player.id")
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import appBar from "~/components/layouts/app-bar";
-import playerList from "~/components/pages/player-list";
+import appList from "~/components/pages/player/app-list";
 
 export default {
   components: {
     appBar,
-    playerList,
+    appList,
   },
   data: () => ({
     edit: false,
@@ -23,6 +22,9 @@ export default {
   computed: {
     ...mapGetters("players", ["players"]),
     ...mapGetters("guilds", ["guild"]),
+  },
+  created() {
+    this.$title("冒険者名簿");
   },
 };
 </script>
