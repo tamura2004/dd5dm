@@ -1,13 +1,12 @@
 <template lang="pug">
-  .headline EncounterForm
-    v-btn(block dark @click="reload") 振り直し
-    v-list(two-line)
-      template(v-for="monster in monsters")
-        MonsterList(:monster="monster")
-          v-list-tile-action
-            v-btn(flat @click="select(monster)")
-              v-icon done
-        v-divider
+.headline EncounterForm
+  v-btn(block dark @click="reload") 振り直し
+  v-list(two-line)
+    template(v-for="monster in monsters")
+      MonsterList(:monster="monster")
+        v-list-tile-action
+          v-btn(small color="primary" @click="select(monster)") 選択
+      v-divider
 </template>
 
 <script lang="ts">
@@ -44,7 +43,7 @@ export default class EncounterForm extends Vue {
     //
   }
 
-  private async reated() {
+  private async created() {
     this.reload();
     this.unsubscribe = await listen<Encounter>(Encounter, 'sessionId', this.sessionId);
   }

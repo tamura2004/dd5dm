@@ -2,10 +2,10 @@ import Session from '@/models/Session';
 import Encounter from '@/models/Encounter';
 import Creature from '@/models/Creature';
 import Player from '@/models/Player';
-import Dungeon from './Dungeon';
-import Npc from './Npc';
-import Spell from './Spell';
-import Feat from './Feat';
+import Dungeon from '@/models/Dungeon';
+import Npc from '@/models/Npc';
+import Spell from '@/models/Spell';
+import Feat from '@/models/Feat';
 import Guild from '@/models/Guild';
 
 export default class State {
