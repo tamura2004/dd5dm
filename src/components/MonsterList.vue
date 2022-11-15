@@ -1,7 +1,7 @@
 <template lang="pug">
 v-list-tile(v-if="monster" @click="")
   v-list-tile-avatar
-    v-btn.font-weight-bold(fab dark small :color="color") {{ label }}
+    v-btn.font-weight-bold(fab dark small :color="color" @click="select") {{ label }}
   v-list-tile-content(@click.stop="dialog = true")
     v-list-tile-title
       v-layout
@@ -27,7 +27,7 @@ v-list-tile(v-if="monster" @click="")
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 import Monster from '@/models/Monster';
 import Mode from '@/models/Mode';
 import { MODE } from '@/data/ENCOUNTER_DATA';
@@ -44,6 +44,11 @@ export default class MonsterList extends Vue {
 
   private get merged(): Monster {
     return this.monster.merged;
+  }
+
+  @Emit()
+  private select(monster: Monster) {
+    return this.monster;
   }
 
   private get mode(): MODE {

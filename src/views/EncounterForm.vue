@@ -3,7 +3,7 @@
   v-btn(block dark @click="reload") 振り直し
   v-list(two-line)
     template(v-for="monster in monsters")
-      MonsterList(:monster="monster")
+      MonsterList(:monster="monster" @select="select(monster)")
         v-list-tile-action
           v-btn(small color="primary" @click="select(monster)") 選択
       v-divider
