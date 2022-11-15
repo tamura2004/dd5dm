@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { mapState, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 import SessionModel from '@/models/Session';
 
 @Component({

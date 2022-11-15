@@ -9,21 +9,28 @@
   v-list(three-line)
     template(v-for="[id, player] in Array.from(players)")
       template(v-if="session.playerIds.includes(id) || edit")
-        v-list-tile(:key="id")
+        v-list-tile
           v-list-tile-action(v-if="edit")
             v-checkbox(v-model="playerIds" :value="id")
-          player-tile-content(:id="id")
+          Avatar(:playerId="id")
+          PlayerTileContent(:id="id")
         v-divider
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import Item from '@/models/Item';
 import Player from '@/models/Player';
 import { UPDATE } from '@/types/ActionTypes';
 import Session from '@/models/Session';
+import Avatar from '@/components/Avatar.vue';
+import PlayerTileContent from '@/components/PlayerTileContent.vue';
 
-@Component
+@Component({
+  components: {
+    Avatar,
+    PlayerTileContent,
+  },
+})
 export default class SessionPlayers extends Vue {
   @Prop() private sessionId!: string;
 
@@ -37,8 +44,6 @@ export default class SessionPlayers extends Vue {
   private get session(): Session {
     return this.$store.getters.session(this.sessionId);
   }
-
-    // async [UPDATE]({}, { collectionName, id, updates }) {
 
   private async save() {
     await this.$store.dispatch(UPDATE, {

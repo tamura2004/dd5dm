@@ -7,7 +7,7 @@ div
           .caption INIT
         v-layout(justify-center)
           .display-1.red--text {{ hp }}
-    Avatar(v-model="avatar")
+    Avatar(:playerId="id")
     PlayerTileContent(:id="id")
     v-list-tile-action
       v-container.ma-0.pa-0
