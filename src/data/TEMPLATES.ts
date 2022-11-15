@@ -62,26 +62,6 @@ const TEMPLATE_DATA: Array<Required<Template>> = [
         ],
     },
     {
-        name: 'メタル',
-        type: '人造',
-        alignment: '秩序にして悪',
-        acMod: 0,
-        hpMod: 1,
-        move: '',
-        damage: '電撃',
-        abilityMod: [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-        ],
-        attributes: [
-            'ダメージ耐性: [毒][精神][死霊]',
-        ],
-    },
-    {
         name: 'デーモン',
         type: 'フィーンド',
         alignment: '秩序にして悪',
