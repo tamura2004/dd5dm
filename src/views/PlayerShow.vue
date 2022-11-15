@@ -3,8 +3,7 @@ div(v-if="player")
   .headline {{ player.characterName }}
   v-list(two-line)
     v-list-tile
-      v-list-tile-avatar(tile)
-        v-img(:src="`/img/${player.avatar}`")
+      avatar(:playerId="playerId")
       v-list-tile-content
         v-list-tile-title
           v-layout
@@ -42,8 +41,12 @@ import Player from '@/models/Player';
 import { ABILITY_LABEL, SKILLS } from '@/data/DATA';
 import PATH from '../types/PathTypes';
 import { mapGetters } from 'vuex';
+import Avatar from '@/components/Avatar.vue';
 
 @Component({
+  components: {
+    Avatar,
+  },
   computed: {
     ...mapGetters(['level']),
   },

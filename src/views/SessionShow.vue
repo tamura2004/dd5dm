@@ -1,33 +1,33 @@
 <template lang="pug">
-  .headline(v-if="available")
-    table
-      tr
-        th.label.body-2 セッション
-        td.body-2 {{ session.name }}
-      tr
-        th.label.body-2 場所
-        td.body-2
-          router-link(:to="`/dungeon/${session.dungeonId}/sessions`") {{ dungeon(session.dungeonId).name }}
-      tr
-        th.label.body-2 依頼人
-        td.body-2
-          router-link(:to="`/npc/${session.npcId}/edit`") {{ npc.name }}
-      tr
-        th.label.body-2 目的
-        td.body-2 {{ session.purpose }}
-      tr
-        th.label.body-2 条件
-        td.body-2 {{ session.limit }}
-      tr
-        th.label.body-2 報酬
-        td.body-2 {{ session.reward }}gp
+.headline(v-if="available")
+  table
+    tr
+      th.label.body-2 セッション
+      td.body-2 {{ session.name }}
+    tr
+      th.label.body-2 場所
+      td.body-2
+        router-link(:to="`/dungeon/${session.dungeonId}/sessions`") {{ dungeon(session.dungeonId).name }}
+    tr
+      th.label.body-2 依頼人
+      td.body-2
+        router-link(:to="`/npc/${session.npcId}/edit`") {{ npc.name }}
+    tr
+      th.label.body-2 目的
+      td.body-2 {{ session.purpose }}
+    tr
+      th.label.body-2 条件
+      td.body-2 {{ session.limit }}
+    tr
+      th.label.body-2 報酬
+      td.body-2 {{ session.reward }}gp
 
-    v-tabs
-      v-tab(to="players") ＰＣ
-      v-tab(to="encounters") 遭遇
-      v-tab(to="reward") 報酬
-      v-tab(:to="`/session/${sessionId}/edit`") 編集
-    router-view
+  v-tabs
+    v-tab(to="players") ＰＣ
+    v-tab(to="encounters") 遭遇
+    v-tab(to="reward") 報酬
+    v-tab(:to="`/session/${sessionId}/edit`") 編集
+  router-view
 </template>
 
 <script lang="ts">

@@ -163,7 +163,7 @@ export default new Vuex.Store({
         password,
       );
     },
-    async [ACTION.SIGNIN]({}, { email, password }) {
+    async [ACTION.SIGNUP]({}, { email, password }) {
       await firebase.auth().createUserWithEmailAndPassword(
         email,
         password,

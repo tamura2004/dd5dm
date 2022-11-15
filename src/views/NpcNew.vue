@@ -1,5 +1,5 @@
 <template lang="pug">
-  npc-form(@upload="uploadHandler")
+npc-form(@upload="uploadHandler")
 </template>
 
 <script lang="ts">

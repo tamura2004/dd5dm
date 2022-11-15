@@ -1,11 +1,11 @@
 <template lang="pug">
-  .headline セッション一覧
-    v-list(two-line)
-      template(v-for="[key, session] in Array.from(sessions(dungeonId))")
-        session-tile(:sessionId="key" :key="key")
-        v-divider
+.headline セッション一覧
+  v-list(two-line)
+    template(v-for="[key, session] in Array.from(sessions(dungeonId))")
+      session-tile(:sessionId="key" :key="key")
+      v-divider
 
-    v-btn(dark block color="primary" :to="`/sessions/new/${dungeonId}`") 新規セッション
+  v-btn(dark block color="primary" :to="`/sessions/new/${dungeonId}`") 新規セッション
 </template>
 
 <script lang="ts">

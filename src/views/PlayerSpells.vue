@@ -1,14 +1,14 @@
 <template lang="pug">
-  .headline 呪文
-    template(v-for="(spell, key) of spells" v-if="spell")
-      v-list-tile
-        v-list-tile-action(@click="$store.dispatch('deleteSpell', key)"): v-icon clear
-        v-list-tile-content
-          v-list-tile-title {{ spell.name }}
-          v-list-tile-sub-title {{ spell.klass }}/{{ spell.level }}lv
-        v-list-tile-action(@click="$router.push(`/spellForm/${key}`)")
-          v-icon keyboard_arrow_right
-      v-divider
+.headline 呪文
+  template(v-for="(spell, key) of spells" v-if="spell")
+    v-list-tile
+      v-list-tile-action(@click="$store.dispatch('deleteSpell', key)"): v-icon clear
+      v-list-tile-content
+        v-list-tile-title {{ spell.name }}
+        v-list-tile-sub-title {{ spell.klass }}/{{ spell.level }}lv
+      v-list-tile-action(@click="$router.push(`/spellForm/${key}`)")
+        v-icon keyboard_arrow_right
+    v-divider
 </template>
 
 <script lang="ts">

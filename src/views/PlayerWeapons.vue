@@ -1,28 +1,28 @@
 <template lang="pug">
-  .headline
-    template(v-if="!edit")
-      v-btn(block dark color="primary" @click="edit=true") 武器選択
-    template(v-else)
-      v-btn(block dark color="success" @click="save") 決定
-      v-btn(block dark @click="edit=false") キャンセル
-      v-tabs
-        v-tab(@click="range='近接'") 近接
-        v-tab(@click="range='遠隔'") 遠隔
-      v-tabs
-        v-tab(@click="type='斬撃'") 斬撃
-        v-tab(@click="type='殴打'") 殴打
-        v-tab(@click="type='刺突'") 刺突
-    v-list
-      template(v-for="[name, weapon] in Array.from(weapons)")
-        template(v-if="show(name, weapon)")
-          v-list-tile(:key="name")
-            v-list-tile-action(v-if="edit")
-              v-checkbox(v-model="weaponNames" :value="name")
-            v-list-tile-content
-              v-list-tile-title {{ name }}：{{ weapon.category }}
-              v-list-tile-sub-title
-                weapon-description(:weapon="weapon" :player="player")
-          v-divider
+.headline
+  template(v-if="!edit")
+    v-btn(block dark color="primary" @click="edit=true") 武器選択
+  template(v-else)
+    v-btn(block dark color="success" @click="save") 決定
+    v-btn(block dark @click="edit=false") キャンセル
+    v-tabs
+      v-tab(@click="range='近接'") 近接
+      v-tab(@click="range='遠隔'") 遠隔
+    v-tabs
+      v-tab(@click="type='斬撃'") 斬撃
+      v-tab(@click="type='殴打'") 殴打
+      v-tab(@click="type='刺突'") 刺突
+  v-list
+    template(v-for="[name, weapon] in Array.from(weapons)")
+      template(v-if="show(name, weapon)")
+        v-list-tile(:key="name")
+          v-list-tile-action(v-if="edit")
+            v-checkbox(v-model="weaponNames" :value="name")
+          v-list-tile-content
+            v-list-tile-title {{ name }}：{{ weapon.category }}
+            v-list-tile-sub-title
+              weapon-description(:weapon="weapon" :player="player")
+        v-divider
   </template>
 
 <script lang="ts">

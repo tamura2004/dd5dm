@@ -6,8 +6,7 @@ v-list(two-line)
     @click="select(id)"
   )
     v-list-tile
-      v-list-tile-avatar
-        v-img(:src="`/img/${avatar || '035-elf.png'}`")
+      avatar(:playerId="id")
       PlayerTileContent(:id="id")
     v-divider
 </template>
@@ -15,8 +14,13 @@ v-list(two-line)
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import Player from '@/models/Player';
+import Avatar from '@/components/Avatar.vue';
 
-@Component
+@Component({
+  components: {
+    Avatar,
+  },
+})
 export default class PlayerIndex extends Vue {
   @Prop() private guildId?: string;
 

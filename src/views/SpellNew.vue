@@ -1,5 +1,5 @@
 <template lang="pug">
-  spell-form(@upload="uploadHandler")
+spell-form(@upload="uploadHandler")
 </template>
 
 <script lang="ts">

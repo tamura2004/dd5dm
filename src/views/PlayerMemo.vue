@@ -1,12 +1,12 @@
 <template lang="pug">
-  .headline メモ
-    v-card(flat)
-      base-textarea(
-        v-model="memo"
-      )
-      v-card-actions
-        v-spacer
-        v-btn(dark color="primary" @click="save") 保存
+.headline メモ
+  v-card(flat)
+    base-textarea(
+      v-model="memo"
+    )
+    v-card-actions
+      v-spacer
+      v-btn(dark color="primary" @click="save") 保存
 </template>
 
 <script lang="ts">

@@ -1,19 +1,19 @@
 <template lang="pug">
-  .headline SessionPlayers
-    template(v-if="!edit")
-      v-btn(block dark color="primary" @click="edit=true") 参加ＰＣ選択
-      v-btn(block dark to="encounters") 遭遇選択へ
-    template(v-else)
-      v-btn(block dark color="success"  @click="save") 決定
-      v-btn(block dark  @click="edit=false") キャンセル
-    v-list(three-line)
-      template(v-for="[id, player] in Array.from(players)")
-        template(v-if="session.playerIds.includes(id) || edit")
-          v-list-tile(:key="id")
-            v-list-tile-action(v-if="edit")
-              v-checkbox(v-model="playerIds" :value="id")
-            player-tile-content(:id="id")
-          v-divider
+.headline SessionPlayers
+  template(v-if="!edit")
+    v-btn(block dark color="primary" @click="edit=true") 参加ＰＣ選択
+    v-btn(block dark to="encounters") 遭遇選択へ
+  template(v-else)
+    v-btn(block dark color="success"  @click="save") 決定
+    v-btn(block dark  @click="edit=false") キャンセル
+  v-list(three-line)
+    template(v-for="[id, player] in Array.from(players)")
+      template(v-if="session.playerIds.includes(id) || edit")
+        v-list-tile(:key="id")
+          v-list-tile-action(v-if="edit")
+            v-checkbox(v-model="playerIds" :value="id")
+          player-tile-content(:id="id")
+        v-divider
 </template>
 
 <script lang="ts">
